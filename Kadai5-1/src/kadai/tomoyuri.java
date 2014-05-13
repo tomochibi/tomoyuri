@@ -13,30 +13,23 @@ public class tomoyuri {
 		static String translateEng(int n) {
 			int x=n/10;//10‚ÌˆÊ
 			int y=n-(x*10);//1‚ÌˆÊ
-			if(n < 10) return countEng1(n);
+			if(n <= 10) return countEng1(n);
 			if(n>=11 && 19>=n) return countEng3(n);
+			
 			if(n%10 == 0) return countEng2(n);
-			else if(n>20 && n<100) return countEng2(n)+" "+countEng1(y);
+			else if(n>20 && n<=101) return countEng2(n)+" "+countEng1(y);
+			else if(n>=111 && 119>=n) return countEng2(n)+" "+countEng3(y);
+			
 			return n+"";
 			
 		}
 	
 	static String countEng1(int n){
-		String[] a = new  String[9];
+   String[] a = {"zero","one","two","three","four","five","six","seven","eight","nine","ten"};
+		 
 		
-		a[0] = "one";
-		a[1] = "two";
-		a[2] = "three";
-		a[3] = "four";
-		a[4] = "five";
-		a[5] = "six";
-		a[6] ="seven";
-		a[7] = "eight";
-		a[8] = "nine";
-		
-		
-		if(n>=1 && n<=9) {
-			return a[n-1];
+		if(n>=0 && n<=10) {
+			return a[n];
 		}
 		
 		return "";
@@ -44,39 +37,25 @@ public class tomoyuri {
 	
 	static String countEng2(int n){
 		
-		String[] b = new String[9];
+		String[] b = {"twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety","hundred"};
 		
-		b[0] = "ten";
-		b[1] = "twenty";
-		b[2] = "thirty";
-		b[3] = "forty";
-		b[4] = "fifty";
-		b[5] = "sixty";
-		b[6] = "seventy";
-		b[7] = "eighty";
-		b[8] = "ninety";
 		
-	    return b[n/10-1];
+		
+	    return b[n/10-2];
 		
 			
 		}
 		
 	
 	static String countEng3(int n){
-		String[] c = new  String[9];
+		int x=n/10;//10‚ÌˆÊ
+		int y=n-(x*10);//1‚ÌˆÊ
+		String[] c = {"eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
 		
 		
-		c[0] = "eleven";
-		c[1] = "twelve";
-		c[2] = "thirteen";
-		c[3] = "fourteen";
-		c[4] = "fifteen";
-		c[5] = "sixteen";
-		c[6] = "seventeen";
-		c[7] = "eighteen";
-		c[8] = "nineteen";	
+		return c[y-1];
 	
-	return "";
+	
 		
 	}
 }
